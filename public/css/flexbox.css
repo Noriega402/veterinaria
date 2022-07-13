@@ -1,0 +1,78 @@
+.flex{
+    position: relative;
+    top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+.flex .box{
+    background: #fff;
+    width: 600px;
+    height: 150px;
+    padding: 10px;
+    margin: 10px;
+}
+.flex .box .title{
+    color: #555;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-align: end;
+    position: relative;
+    top: -25px;
+}
+.flex .box .response{
+    position: relative;
+    text-align: end;
+    font-weight: normal;
+    top: -10px;
+}
+.flex .box .box-icon{
+    width: 60px;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    position: relative;
+    top: -22px;
+    border-radius: 3px;
+}
+
+.flex .calendar .box-icon{
+    background: #24B331;
+}
+.flex .dates .box-icon{
+    background: #3F82CE;
+}
+.flex .registers .box-icon{
+    background: #C20C0F;
+}
+.flex .veterinary .box-icon{
+    background: #DAD835 ;
+}
+.flex .pets .box-icon{
+    background: #851DAF;
+}
+.flex .inventory .box-icon{
+    background: #E1A931 ;
+}
+.flex .users .box-icon{
+    background: #278B3F;
+}
+.flex .suppliers .box-icon{
+    background: #232DC2 ;
+}
+.flex .box .icon{
+    font-size: 2rem;
+    color: #fff;
+}
+.flex .box hr{
+    position: relative;
+    top: 10px;
+}
+.flex .box span{
+    position: relative;
+    top: 20px;
+}
+.flex .box span i{
+    color: #555;
+    margin-right: 10px;
+}
