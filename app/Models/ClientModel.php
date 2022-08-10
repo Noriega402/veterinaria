@@ -59,8 +59,8 @@ class ClientModel extends Model
 		// return $this->db->insertID();
 	}
 
-	public function getClientId($data){
-		$search = $this->db->table('cliente')->where('id_cliente',$data);
+	public function getClientId($id){
+		$search = $this->db->table('cliente')->where('id_cliente',$id);
 
 		return $search->get()->getResultObject();
 	}

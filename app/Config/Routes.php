@@ -69,11 +69,16 @@ $routes->group('/admin', ['namespace' => 'App\Controllers\Admin', 'filter' => 'a
 	$routes->post('newUser', 'User::insertUser');
 
 	#Obtener registros de la DB para actualizarlos
+	#Cliente
 	$routes->get('getClient/(:any)','Client::getClient/$1');
+	#Mascota
+	$routes->get('getPet/(:any)','Pet::getPet/$1');
 
 	#Actualizar datos
 	#Cliente
-	$routes->post('update', 'Client::update');
+	$routes->post('updateClient', 'Client::update');
+	#Mascota
+	$routes->post('updatePet', 'Pet::update');
 
 	#Eliminar datos
 	#Cliente

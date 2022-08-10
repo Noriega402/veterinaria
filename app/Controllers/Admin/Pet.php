@@ -71,4 +71,73 @@ class Pet extends BaseController
 		$msg = '¡Mascota agregada con exito!';
 		return redirect()->back()->with('success', $msg);
 	}
+
+	public function getPet($id){
+		$pets = new PetModel();
+		$razas = new Raza();
+		$clients = new ClientModel();
+
+		$data = ['titulo' => 'Actualizar Mascota'];
+		$request = ['id_mascota' => $id,];
+
+		$pet = $pets->getPetId($request);
+		$client = $clients->getClients();
+
+		// dd($pet[0]->raza);
+		// dd($pet);
+		$idRaza = $pet[0]->raza;
+		$getClient = $pet[0]->cliente;
+		$raza = $razas->getRazaById($idRaza);
+		$dataClient = $clients->getClientId($getClient);
+		// dd($raza[0]->nombre_raza);
+
+		$response = [
+			'pet' => $pet,
+			'raza' => $raza,
+			'dataClient' => $dataClient,
+			'allClient' => $client,
+		];
+
+		$vistas = view('Mascotas/header', $data) .
+			view('Admin/menu') .
+			view('Mascotas/frm_update', $response) .
+			view('Mascotas/footer');
+
+		return $vistas;
+	}
+
+	public function update(){
+		$datos = [
+			'id_mascota' => $this->request->getPost('id'),
+			'nombre_macota' => $this->request->getPost('nombre'),
+			'cliente' => $this->request->getPost('cliente'),
+			'f_nacimiento' => $this->request->getPost('nacimiento'),
+			'peso' => $this->request->getPost('peso'),
+			'color' => $this->request->getPost('color'),
+		];
+
+		$validation = \Config\Services::validation();
+		$validation->run($datos, 'pet');
+		$validation->setRuleGroup('pet');
+
+		if(!$validation->withRequest($this->request)->run()){
+			// dd($validation->getErrors());
+			return redirect()->back()->withInput()->with('error', $validation->getErrors());
+		}
+
+		$cliente = new ClientModel();
+		$update  = $cliente->updateClient($datos);
+		// dd($update);
+		$msg = "¡Datos de la mascota actualizado con exito!";
+		return redirect('client')->with('update', $msg);
+	}
+
+	// public function delete($id){
+	// 	$datos = ['id_cliente' => $id];
+	// 	$cliente = new ClientModel();
+	// 	$delete = $cliente->deleteClient($datos);
+	// 	// dd($delete);
+	// 	$msg = "Cliente borrado";
+	// 	return redirect()->back()->with('delete', $msg);
+	// }
 }

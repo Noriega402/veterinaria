@@ -15,7 +15,7 @@ $phone = $client[0]->telefono;
         <div class="clients update">
             <?php session(); ?>
             <div class="frm_container">
-                <form action="<?= base_url().'/admin/update'; ?>" method="POST" class="frm">
+                <form action="<?= base_url().'/admin/updateClient'; ?>" method="POST" class="frm">
                     <p class="frm_group_id">
                         <input type="text" name="id" id="idCliente" class="frm__input" required value="<?php echo $id; ?>" hidden>
                     </p>

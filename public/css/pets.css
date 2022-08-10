@@ -1,8 +1,14 @@
+.pet {
+    width: 100%;
+    height: 100%;
+}
+.update{
+    height: 100vh;
+}
 .frm_container {
     width: 90%;
     margin: 0 auto;
 }
-
 .frm {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -10,10 +16,21 @@
         "nacimiento peso color"
         "cliente empty submit";
 }
+.frm_update{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas: "raza nombre"
+        "nacimiento colors"
+        "peso cliente"
+        "submit submit";
+}
 p {
     padding: 20px;
     display: flex;
     flex-direction: column;
+}
+.frm_group_id{
+    grid-area: id;
 }
 .frm_group_nombre {
     grid-area: nombre;
@@ -29,6 +46,9 @@ p {
 }
 .frm_group_peso {
     grid-area: peso;
+}
+.frm_group_color {
+    grid-area: colors;
 }
 .frm_group_cliente{
     grid-area: cliente;

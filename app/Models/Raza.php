@@ -49,4 +49,9 @@ class Raza extends Model
 		$query = $this->db->query("SELECT* FROM sexo");
 		return $query->getResult();
 	}
+
+	public function getRazaById($id){
+		$getRaza = $this->db->table('raza')->where('id_raza', $id);
+		return $getRaza->get()->getResultObject();
+	}
 }

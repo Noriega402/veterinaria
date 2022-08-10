@@ -112,7 +112,7 @@
                                 <td><?= $key->peso;?></td>
                                 <td><?= $key->color;?></td>
                                 <td class="acciones">
-                                    <a href="#" class="btn_editar">
+                                    <a href="<?= base_url().'/admin/getPet/'. $key->id?>" class="btn_editar">
                                         <i class="fas fa-edit"></i>
                                     </a>
                                     <a href="#" class="btn_eliminar">

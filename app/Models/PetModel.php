@@ -64,4 +64,10 @@ class PetModel extends Model
 		$pet = $this->db->table('mascota');
 		$pet->insert($data);
 	}
+
+	public function getPetId($id){
+		$search = $this->db->table('mascota')->where('id_mascota', $id);
+
+		return $search->get()->getResultObject();
+	}
 }
