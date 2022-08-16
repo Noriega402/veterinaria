@@ -58,9 +58,6 @@ class User extends BaseController
 			// dd($validation->getErrors());
 			return redirect()->back()->withInput()->with('error',$validation->getErrors());
 		}
-		# empleado, nick y password = table empleado
-		# rol = table rol
-		# asignar el rol y el usuario = table asig_usuario_rol
 
 		$users = new UserModel();
 
@@ -69,5 +66,24 @@ class User extends BaseController
 
 		$msg = "¡Usuario creado con exito!";
 		return redirect()->back()->with('success', $msg);
+	}
+
+	public function getUser($id){
+		$users = new UserModel();
+		$data = ['titulo' => 'Actualizar Usuario'];
+
+		$request = ['id_usuario' => $id];
+
+		$user = $users->getUserById($request);
+
+		$response = ['usuario' => $user];
+		dd($user);
+
+		$vistas = view('User/header', $data) .
+			view('Admin/menu') .
+			view('User/frm_update', $response) .
+			view('User/footer');
+
+		return $vistas;
 	}
 }

@@ -74,7 +74,7 @@
                                 <td><?= $key->nombre_completo; ?></td>
                                 <td><?= $key->rol; ?></td>
                                 <td class="acciones">
-                                    <a href="#" class="btn_editar">
+                                    <a href="<?= base_url().'/admin/getUser/'.$key->id;?>" class="btn_editar">
                                         <i class="fas fa-edit"></i>
                                     </a>
                                     <a href="#" class="btn_eliminar">

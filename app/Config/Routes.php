@@ -73,6 +73,8 @@ $routes->group('/admin', ['namespace' => 'App\Controllers\Admin', 'filter' => 'a
 	$routes->get('getClient/(:any)','Client::getClient/$1');
 	#Mascota
 	$routes->get('getPet/(:any)','Pet::getPet/$1');
+	#Usuario
+	$routes->get('getUser/(:any)','User::getUser/$1');
 
 	#Actualizar datos
 	#Cliente

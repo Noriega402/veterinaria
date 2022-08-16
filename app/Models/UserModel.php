@@ -91,4 +91,10 @@ class UserModel extends Model
 			'rol' => $idRol,
 		]);
 	}
+
+	public function getUserById($id){
+		$user = $this->db->table('usuario')->where('id_usuario',$id);
+
+		return $user->get()->getResultObject();
+	}
 }
