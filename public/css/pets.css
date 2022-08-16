@@ -13,7 +13,7 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-areas: "nombre raza sexo"
-        "nacimiento peso color"
+        "nacimiento peso colors"
         "cliente empty submit";
 }
 .frm_update{
@@ -150,7 +150,7 @@ p {
         grid-template-columns: repeat(2,1fr);
         grid-template-areas: "nombre raza"
             "sexo nacimiento"
-            "peso color"
+            "peso colors"
             "cliente"
             "submit submit";
     }
@@ -181,7 +181,7 @@ p {
             "sexo"
             "nacimiento"
             "peso"
-            "color"
+            "colors"
             "cliente"
             "submit";
     }

@@ -143,11 +143,22 @@
 <script>
     // variable $correcto viene del controlador Pet.php -> funcion insertPet
     let mensaje = '<?= $correcto; ?>'
+    let editado = '<?= $actualizado; ?>'
     if (mensaje) {
         Swal.fire({
             position: 'center',
             icon: 'success',
             title: `${mensaje}`,
+            showConfirmButton: false,
+            timer: 1500
+        });
+    }
+
+    if(editado){
+        Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: `${editado}`,
             showConfirmButton: false,
             timer: 1500
         });

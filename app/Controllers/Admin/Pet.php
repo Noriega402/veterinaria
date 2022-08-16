@@ -15,6 +15,7 @@ class Pet extends BaseController
 		$cliente = new ClientModel();
 
 		$sesion = session()->success;
+		$sesionUpdate = session()->update;
 
 		#valores de inputs
 		$raza = $razas->getRazas();
@@ -26,6 +27,7 @@ class Pet extends BaseController
 
 		$response = [
 			'correcto' => $sesion,
+			'actualizado' => $sesionUpdate,
 			'raza' => $raza,
 			'sexo' => $sexo,
 			'cliente' => $lista,
@@ -109,27 +111,27 @@ class Pet extends BaseController
 	public function update(){
 		$datos = [
 			'id_mascota' => $this->request->getPost('id'),
-			'nombre_macota' => $this->request->getPost('nombre'),
-			'cliente' => $this->request->getPost('cliente'),
-			'f_nacimiento' => $this->request->getPost('nacimiento'),
+			'nombre' => $this->request->getPost('nombre'),
+			'f_nacimiento' => $this->request->getPost('f_nacimiento'),
 			'peso' => $this->request->getPost('peso'),
 			'color' => $this->request->getPost('color'),
+			'cliente' => $this->request->getPost('cliente'),
 		];
 
 		$validation = \Config\Services::validation();
-		$validation->run($datos, 'pet');
-		$validation->setRuleGroup('pet');
+		$validation->run($datos, 'updatePet');
+		$validation->setRuleGroup('updatePet');
 
 		if(!$validation->withRequest($this->request)->run()){
 			// dd($validation->getErrors());
 			return redirect()->back()->withInput()->with('error', $validation->getErrors());
 		}
 
-		$cliente = new ClientModel();
-		$update  = $cliente->updateClient($datos);
+		$mascota = new PetModel();
+		$update  = $mascota->updatePet($datos);
 		// dd($update);
 		$msg = "¡Datos de la mascota actualizado con exito!";
-		return redirect('client')->with('update', $msg);
+		return redirect('pets')->with('update', $msg);
 	}
 
 	// public function delete($id){

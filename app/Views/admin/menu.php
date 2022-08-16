@@ -23,15 +23,6 @@
                 </ul>
             </li>
             <li>
-                <a href="<?= base_url().route_to('dates');?>">
-                    <i class="fas fa-calendar-day"></i>
-                    <span class="link_name">Citas</span>
-                </a>
-                <ul class="sub-menu blank">
-                    <li><a class="link_name" href="#">Citas</a></li>
-                </ul>
-            </li>
-            <li>
                 <div class="icon-link">
                     <a href="<?= base_url().route_to('employee');?>">
                         <i class="fas fa-users"></i>
@@ -72,26 +63,6 @@
                         <li><a class="link_name" href="#">Clientes</a></li>
                     </ul>
                 </div>
-            </li>
-            <li>
-                <div class="icon-link">
-                    <a href="<?= base_url().route_to('shop');?>">
-                        <i class="fas fa-store-alt"></i>
-                        <span class="link_name">Tienda</span>
-                    </a>
-                    <ul class="sub-menu blank">
-                        <li><a class="link_name" href="#">Tienda</a></li>
-                    </ul>
-                </div>
-            </li>
-            <li>
-                <a href="<?= base_url().route_to('history');?>">
-                    <i class="fas fa-truck-moving icon-sm"></i>
-                    <span class="link_name">Proveedores</span>
-                </a>
-                <ul class="sub-menu blank">
-                    <li><a class="link_name" href="#">Proveedores</a></li>
-                </ul>
             </li>
             <li>
                 <div class="profile-details">

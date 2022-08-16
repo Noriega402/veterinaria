@@ -111,6 +111,33 @@ class Validation
 			'min_length' => 'Debe llevar minimo 8 caracteres',
 		],
 	];
+
+	public $updatePet= [
+		'nombre' => 'required',
+		'cliente' => 'integer|required',
+		'f_nacimiento' => 'valid_date|required',
+		'peso' => 'required',
+		'color' => 'required|string',
+	];
+
+	public $updatePet_errors = [
+		'nombre' => [
+			'required' => 'Debe ingresar un nombre de mascota.',
+		],
+		'cliente' => [
+			'required' => 'Debe escoger un cliente.',
+			'integer' => 'Debe escoger el cliente.',
+		],
+		'f_nacimiento' => [
+			'required' => 'Debe ingresar año de nacimiento de mascota.',
+			'valid_date' => 'Debe ingresar una fecha válida'
+		],
+		'peso' => ['required' => 'Debe ingresar el peso'],
+		'color' => [
+			'required' => 'Debe describir el color de la mascota.',
+			'string' => 'Debe ser solo texto'
+		],
+	];
 	//--------------------------------------------------------------------
 
 	/**

@@ -70,4 +70,16 @@ class PetModel extends Model
 
 		return $search->get()->getResultObject();
 	}
+
+	public function updatePet($data){
+		$clientUpdate = $this->db->table('mascota');
+		$clientUpdate->set('nombre_mascota',$data['nombre']);
+		$clientUpdate->set('cliente',$data['cliente']);
+		$clientUpdate->set('f_nacimiento',$data['f_nacimiento']);
+		$clientUpdate->set('peso',$data['peso']);
+		$clientUpdate->set('color',$data['color']);
+		$clientUpdate->where('id_mascota',$data['id_mascota']);
+
+		return $clientUpdate->update();
+	}
 }

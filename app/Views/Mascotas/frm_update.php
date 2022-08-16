@@ -58,7 +58,7 @@ $listaClientes = $allClient;
                     <p class="frm_group_cliente">
                         <label for="cliente" class="frm__label">Dueño</label>
                         <select name="cliente" id="cliente" class="frm__input" required>
-                            <option value="<?= $idCliente; ?>" disabled selected>
+                            <option value="<?= $idCliente; ?>" selected>
                                 <?= $nombreCliente." ".$apellidoCliente; ?>
                             </option>
                             <?php foreach ($listaClientes as $key) : ?>
