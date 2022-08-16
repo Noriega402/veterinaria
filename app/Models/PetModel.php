@@ -72,14 +72,21 @@ class PetModel extends Model
 	}
 
 	public function updatePet($data){
-		$clientUpdate = $this->db->table('mascota');
-		$clientUpdate->set('nombre_mascota',$data['nombre']);
-		$clientUpdate->set('cliente',$data['cliente']);
-		$clientUpdate->set('f_nacimiento',$data['f_nacimiento']);
-		$clientUpdate->set('peso',$data['peso']);
-		$clientUpdate->set('color',$data['color']);
-		$clientUpdate->where('id_mascota',$data['id_mascota']);
+		$mascotaUpdate = $this->db->table('mascota');
+		$mascotaUpdate->set('nombre_mascota',$data['nombre']);
+		$mascotaUpdate->set('cliente',$data['cliente']);
+		$mascotaUpdate->set('f_nacimiento',$data['f_nacimiento']);
+		$mascotaUpdate->set('peso',$data['peso']);
+		$mascotaUpdate->set('color',$data['color']);
+		$mascotaUpdate->where('id_mascota',$data['id_mascota']);
 
-		return $clientUpdate->update();
+		return $mascotaUpdate->update();
+	}
+
+	public function deletePet($id){
+		$deletePet = $this->db->table('mascota');
+		$deletePet->where('id_mascota',$id);
+
+		return $deletePet->delete();
 	}
 }

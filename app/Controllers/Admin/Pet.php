@@ -16,6 +16,7 @@ class Pet extends BaseController
 
 		$sesion = session()->success;
 		$sesionUpdate = session()->update;
+		$sessionDelete = session()->delete;
 
 		#valores de inputs
 		$raza = $razas->getRazas();
@@ -28,6 +29,7 @@ class Pet extends BaseController
 		$response = [
 			'correcto' => $sesion,
 			'actualizado' => $sesionUpdate,
+			'eliminado' => $sessionDelete,
 			'raza' => $raza,
 			'sexo' => $sexo,
 			'cliente' => $lista,
@@ -134,12 +136,12 @@ class Pet extends BaseController
 		return redirect('pets')->with('update', $msg);
 	}
 
-	// public function delete($id){
-	// 	$datos = ['id_cliente' => $id];
-	// 	$cliente = new ClientModel();
-	// 	$delete = $cliente->deleteClient($datos);
-	// 	// dd($delete);
-	// 	$msg = "Cliente borrado";
-	// 	return redirect()->back()->with('delete', $msg);
-	// }
+	public function delete($id){
+		$dato = ['id_mascota' => $id];
+		$mascota =  new PetModel();
+		$delete = $mascota->deletePet($dato);
+		// dd($delete);
+		$msg = "Mascota borrada";
+		return redirect()->back()->with('delete', $msg);
+	}
 }

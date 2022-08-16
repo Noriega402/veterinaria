@@ -53,7 +53,7 @@ class Validation
 	];
 
 	public $pet = [
-		'nombre' => 'required',
+		// 'nombre' => 'required',
 		'cliente' => 'integer|required',
 		'raza' => 'required',
 		'sexo' => 'required',
@@ -63,9 +63,9 @@ class Validation
 	];
 
 	public $pet_errors = [
-		'nombre' => [
-			'required' => 'Debe ingresar un nombre de mascota.',
-		],
+		// 'nombre' => [
+		// 	'required' => 'Debe ingresar un nombre de mascota.',
+		// ],
 
 		'cliente' => [
 			'required' => 'Debe escoger un cliente.',

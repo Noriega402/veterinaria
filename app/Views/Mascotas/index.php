@@ -115,7 +115,7 @@
                                     <a href="<?= base_url().'/admin/getPet/'. $key->id?>" class="btn_editar">
                                         <i class="fas fa-edit"></i>
                                     </a>
-                                    <a href="#" class="btn_eliminar">
+                                    <a href="<?= base_url().'/admin/deletePet/'. $key->id; ?>" class="btn_eliminar">
                                         <i class="fas fa-trash-alt"></i>
                                     </a>
                                 </td>
@@ -144,6 +144,8 @@
     // variable $correcto viene del controlador Pet.php -> funcion insertPet
     let mensaje = '<?= $correcto; ?>'
     let editado = '<?= $actualizado; ?>'
+    let eliminado = '<?= $eliminado; ?>'
+
     if (mensaje) {
         Swal.fire({
             position: 'center',
@@ -159,6 +161,16 @@
             position: 'center',
             icon: 'success',
             title: `${editado}`,
+            showConfirmButton: false,
+            timer: 1500
+        });
+    }
+
+    if(eliminado){
+        Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: `${eliminado}`,
             showConfirmButton: false,
             timer: 1500
         });
