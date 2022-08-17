@@ -78,7 +78,7 @@
                                     <a href="<?= base_url().'/admin/getUser/'.$key->id;?>" class="btn_editar">
                                         <i class="fas fa-edit"></i>
                                     </a>
-                                    <a href="#" class="btn_eliminar">
+                                    <a href="<?= base_url().'/admin/deleteUser/'.$key->id;?>" class="btn_eliminar">
                                         <i class="fas fa-trash-alt"></i>
                                     </a>
                                 </td>
@@ -101,6 +101,7 @@
 <script>
     let mensaje = '<?= $correcto ?>';
     let editado = '<?= $editado ?>';
+    let borrado = '<?= $borrado ?>';
     if(mensaje){
         Swal.fire({
             position: 'center',
@@ -115,6 +116,14 @@
             position: 'center',
             icon: 'success',
             title: `${editado}`,
+            showConfirmButton: false,
+            timer: 1500
+        });
+    }if(borrado){
+        Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: `${borrado}`,
             showConfirmButton: false,
             timer: 1500
         });

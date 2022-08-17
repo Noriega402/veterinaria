@@ -89,6 +89,8 @@ $routes->group('/admin', ['namespace' => 'App\Controllers\Admin', 'filter' => 'a
 	$routes->get('deleteClient/(:any)', 'Client::delete/$1');
 	#Mascota
 	$routes->get('deletePet/(:any)', 'Pet::delete/$1');
+	#Usuario
+	$routes->get('deleteUser/(:any)', 'User::delete/$1');
 });
 
 $routes->group('/invitado', ['namespace' => 'App\Controllers\Invitado', 'filter' => 'invite:Invitado'], function($routes){

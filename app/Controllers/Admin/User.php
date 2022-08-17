@@ -17,6 +17,7 @@ class User extends BaseController
 
 		$sesion = session()->success;
 		$sesionUpdate = session()->update;
+		$sesionDelete = session()->delete;
 
 		$employee = $modelEmployee->asObject()->getEmployee();
 		$rol = $modelRol->asObject()->getAllRol();
@@ -28,6 +29,7 @@ class User extends BaseController
 			'user' => $user,
 			'correcto' => $sesion,
 			'editado' => $sesionUpdate,
+			'borrado' => $sesionDelete,
 		];
 		// dd($response);
 		// var_dump($response['employee'][1]);
@@ -150,9 +152,9 @@ class User extends BaseController
 	}
 
 	public function delete($id){
+		$usuario = new UserModel();
 		$datos = ['id_usuario' => $id];
-		// $usuario = new UserModel();
-		// $delete = $usuario->deleteUser($datos);
+		$delete = $usuario->deleteUser($datos);
 		// dd($delete);
 		$msg = "Usuario eliminado!";
 		return redirect()->back()->with('delete', $msg);

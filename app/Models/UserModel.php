@@ -108,4 +108,9 @@ class UserModel extends Model
 
 		return $user->update();
 	}
+
+	public function deleteUser($id){
+		$user = $this->db->table('usuario')->where('id_usuario',$id);
+		return $user->delete();
+	}
 }
