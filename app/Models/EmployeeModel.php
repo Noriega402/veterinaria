@@ -61,4 +61,10 @@ class EmployeeModel extends Model
 		// $this->db->table('empleado');
 		return $this->where($column, $value)->first();
 	}
+
+	public function getEmpleoyeeById($id){
+		$employee = $this->db->table('empleado')->where('id_empleado',$id);
+
+		return $employee->get()->getResultObject();
+	}
 }

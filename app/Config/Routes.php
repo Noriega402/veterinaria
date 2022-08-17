@@ -81,6 +81,8 @@ $routes->group('/admin', ['namespace' => 'App\Controllers\Admin', 'filter' => 'a
 	$routes->post('updateClient', 'Client::update');
 	#Mascota
 	$routes->post('updatePet', 'Pet::update');
+	#Usuario
+	$routes->post('updateUser', 'User::update');
 
 	#Eliminar datos
 	#Cliente

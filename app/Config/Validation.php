@@ -96,18 +96,16 @@ class Validation
 
 	public $user = [
 		'nick' => 'required|alpha_numeric_punct|is_unique[usuario.nick]',
-		'password' => 'required|alpha_numeric_punct|min_length[8]',
+		'password' => 'required|min_length[8]',
 	];
 
 	public $user_errors = [
 		'nick' => [
 			'required' => 'Este campo es requerido',
-			'alpha_numeric_punct' => 'Este campo solo debe llevar caracteres alfanumericos',
 			'is_unique' => 'Este nick ya esta en uso',
 		],
 		'password' => [
 			'required' => 'Este campo es requerido',
-			'alpha_numeric_punct' => 'Este campo solo debe llevar caracteres',
 			'min_length' => 'Debe llevar minimo 8 caracteres',
 		],
 	];

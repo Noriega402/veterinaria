@@ -1,57 +1,55 @@
 .employee {
-    /* height: 100%; */
+    height: 100%;
     width: 100%;
 }
-
+.update{
+    height: 100vh;
+}
 .frm_container {
     width: 90%;
     margin: 0 auto;
 }
-
 .frm {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-areas: "empleado empleado empleado"
                         "nick pass rol"
-                        "vacio1 vacio2 submit";
+                        "id vacio2 submit";
 }
-
 p {
     padding: 20px;
     display: flex;
     flex-direction: column;
 }
-
+.frm_group_id{
+    grid-area: id;
+}
 .frm_group_empleado {
     grid-area: empleado;
+    /* width: 90%; */
 }
-
 .frm_group_nick {
     grid-area: nick;
 }
-
 .frm_group_password {
     grid-area: pass;
 }
-
 .frm_group_rol{
     grid-area: rol;
+    width: auto;
 }
-
 .frm_group_submit {
     grid-area: submit;
     display: flex;
     justify-content: end;
+    width: 90%;
 }
-
 .container_show_password{
     grid-area: showPass;
 }
-
 .frm_group_empty {
     grid-area: empty;
 }
-
 .frm__input {
     border: 1px solid #39c;
     border-radius: 5px;
@@ -60,16 +58,13 @@ p {
     margin-left: -2px;
     font-size: 1.3rem;
 }
-
 .frm__label {
     font-size: 1.4rem;
 }
-
 .frm__input:focus {
     outline: none;
     border: 2px solid #1A73E8;
 }
-
 .container_show_password{
     /* background: #aeaeae; */
     margin-top: 5px;
@@ -79,11 +74,9 @@ p {
     cursor: pointer;
     align-self: flex-end;
 }
-
 select{
     padding: 7px;
 }
-
 .btn_new {
     align-self: center;
     width: 100%;
@@ -104,7 +97,6 @@ select{
     font-size: 1.6rem;
     transition: all .5s linear;
 }
-
 .btn_new:hover {
     background: #3cb0fd;
     background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
@@ -115,7 +107,6 @@ select{
     text-decoration: none;
     cursor: pointer;
 }
-
 .separador {
     width: 90%;
     position: relative;
@@ -123,13 +114,11 @@ select{
     margin: 0 auto;
     margin-top: 20px;
 }
-
 .container_table {
     /* margin-top: 60px; */
     padding: 50px;
     text-align: center;
 }
-
 .btn_editar {
     -webkit-border-radius: 6;
     -moz-border-radius: 6;
@@ -139,12 +128,10 @@ select{
     padding: 6px 8px 6px 8px;
     text-decoration: none;
 }
-
 .btn_editar:hover {
     background: #f5ba0a;
     text-decoration: none;
 }
-
 .btn_eliminar {
     -webkit-border-radius: 6;
     -moz-border-radius: 6;
@@ -154,18 +141,15 @@ select{
     padding: 6px 8px 6px 8px;
     text-decoration: none;
 }
-
 .btn_eliminar:hover {
     background: #c71a2b;
     text-decoration: none;
 }
-
 .acciones {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
 }
-
 @media screen and (max-width:970px) {
     .frm{
         grid-template-columns: repeat(2, 1fr);

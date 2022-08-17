@@ -70,14 +70,30 @@ class User extends BaseController
 
 	public function getUser($id){
 		$users = new UserModel();
+		$employees = new EmployeeModel();
+		$rols = new RolModel();
+
 		$data = ['titulo' => 'Actualizar Usuario'];
 
 		$request = ['id_usuario' => $id];
 
 		$user = $users->getUserById($request);
+		$employee = $employees->getEmployee();
+		$rol = $rols->getAllRol();
 
-		$response = ['usuario' => $user];
-		dd($user);
+		$getEmployee = $user[0]->empleado;
+		// $getRol =  $user[0]->rol;
+		// dd($rol);
+
+		$dataEmployee = $employees->getEmpleoyeeById($getEmployee);
+
+		$response = [
+			'usuario' => $user,
+			'empleado' => $employee,
+			'roles' => $rol,
+			'dataEmpleado' => $dataEmployee,
+		];
+		// dd($user[0]);
 
 		$vistas = view('User/header', $data) .
 			view('Admin/menu') .
@@ -85,5 +101,58 @@ class User extends BaseController
 			view('User/footer');
 
 		return $vistas;
+	}
+
+	public function update()
+	{
+		$users = new UserModel();
+		$rols = new RolModel();
+
+		$idEmpleado = $this->request->getPost('empleado');
+		$idUsuario = $this->request->getPost('usuario');
+		$idRol = $this->request->getPost('rol');
+		$nick = $this->request->getPost('nick');
+		$password = $this->request->getPost('password');
+
+		$encrypt = password_hash($password,PASSWORD_DEFAULT);
+		// dd($encrypt);
+
+		$datosUsuario = [
+			'usuario' => $idUsuario,
+			'empleado' => $idEmpleado,
+			'nick' => $nick,
+			'password' => $encrypt,
+		];
+
+		$datosAsig = [
+			'usuario' => $idUsuario,
+			'rol' => $idRol,
+		];
+
+		$validation = \Config\Services::validation();
+		$validation->run($datosUsuario, 'user');
+		$validation->setRuleGroup('user');
+
+		if(!$validation->withRequest($this->request)->run()){
+			// dd($validation->getErrors()); para ver errores
+			return redirect()->back()->withInput()->with('error', $validation->getErrors());
+		}
+
+		$updateAsig = $rols->updateAsig($datosAsig['usuario'], $datosAsig['rol']);
+		$updateUser  = $users->updateUser($datosUsuario);
+		// dd($updateUser);
+		// dd($updateAsig);
+
+		$msg = "Usuario actualizado con exito!";
+		return redirect('user')->with('update', $msg);
+	}
+
+	public function delete($id){
+		$datos = ['id_usuario' => $id];
+		// $usuario = new UserModel();
+		// $delete = $usuario->deleteUser($datos);
+		// dd($delete);
+		$msg = "Usuario eliminado!";
+		return redirect()->back()->with('delete', $msg);
 	}
 }

@@ -39,6 +39,7 @@
                     <p class="frm_group_rol">
                         <label for="Rol" class="frm__label">Rol</label>
                         <select name="id_rol" id="Rol" class="frm__input">
+                            <option value="#" selected disabled>Selecciona un rol</option>
                             <?php foreach ($rol as $key) : ?>
                                 <option value="<?= $key->id_rol ?>">
                                     <?= $key->descripcion ?>

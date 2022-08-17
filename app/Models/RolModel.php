@@ -70,4 +70,19 @@ class RolModel extends Model
 	public function getRolFilter(string $value){
 		return $this->where('descripcion', $value)->first();
 	}
+
+	public function getRolById($id){
+		$rol = $this->db->table('rol')->where('id_rol',$id);
+		return $rol->get()->getResultObject();
+	}
+
+	#actualizar una asignacion de roles y usuarios
+	public function updateAsig($usuario, $rol){
+		$asig = $this->db->table('asig_usuario_rol');
+		$asig->set('usuario',$usuario);
+		$asig->set('rol',$rol);
+		$asig->where('id_asig',$usuario);
+
+		return $asig->update();
+	}
 }

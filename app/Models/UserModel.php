@@ -84,6 +84,7 @@ class UserModel extends Model
 		return $this->db->insertID();
 	}
 
+	#Insertar nueva asignacion
 	public function asig_user_rol($idUser, $idRol){
 		$assignment = $this->db->table('asig_usuario_rol');
 		$assignment->insert([
@@ -96,5 +97,15 @@ class UserModel extends Model
 		$user = $this->db->table('usuario')->where('id_usuario',$id);
 
 		return $user->get()->getResultObject();
+	}
+
+	public function updateUser($data){
+		$user = $this->db->table('usuario');
+		$user->set('empleado',$data['empleado']);
+		$user->set('nick',$data['nick']);
+		$user->set('password',$data['password']);
+		$user->where('id_usuario',$data['usuario']);
+
+		return $user->update();
 	}
 }
