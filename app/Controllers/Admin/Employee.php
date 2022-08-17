@@ -19,12 +19,15 @@ class Employee extends BaseController
 		// dd($employee);
 
 		$sesion = session()->success;
+		$sesionUpdate = session()->update;
 
 		$data = [ 'titulo' => 'Empleados'];
 		$response = [
-			'correcto' => $sesion,
 			'empleados' => $employee,
+			'correcto' => $sesion,
+			'editado' => $sesionUpdate,
 		];
+
 		$vistas = view ('Employee/header', $data).
 				view('Admin/menu').
 				view('Employee/index',$response).
@@ -45,5 +48,50 @@ class Employee extends BaseController
 
 		$msg = "¡Empleado agregado con exito!";
 		return redirect()->back()->with('success',$msg);
+	}
+
+	public function getEmployee($id){
+		$employees = new EmployeeModel();
+
+		$data = ['titulo' => 'Actualizar Empleado'];
+		$request = ['id_empleado' => $id];
+
+		$employee = $employees->getEmpleoyeeById($request);
+		// dd($employee);
+		$result = [
+			'employee' => $employee,
+		];
+
+		$vistas = view('Employee/header', $data).
+			view('Admin/menu').
+			view('Employee/frm_update',$result).
+			view('Employee/footer');
+
+		return $vistas;
+	}
+
+	public function update(){
+		$employees = new EmployeeModel();
+
+		$data = [
+			'id_empleado' => $this->request->getPost('id'),
+			'nombre' => $this->request->getPost('nombre'),
+			'apellido' => $this->request->getPost('apellido'),
+			'direccion' => $this->request->getPost('direccion'),
+		];
+
+		$validation = \Config\Services::validation();
+		$validation->run($data,'empleado');
+		$validation->setRuleGroup('empleado');
+
+		if(!$validation->withRequest($this->request)->run()){
+			// dd($validation->getErrors());
+			return redirect()->back()->withInput()->with('error',$validation->getErrors());
+		}
+
+		$employee = $employees->updateEmployee($data);
+
+		$msg = "Datos de empleado actualizado con exito!";
+		return redirect('employee')->with('update',$msg);
 	}
 }

@@ -75,6 +75,8 @@ $routes->group('/admin', ['namespace' => 'App\Controllers\Admin', 'filter' => 'a
 	$routes->get('getPet/(:any)','Pet::getPet/$1');
 	#Usuario
 	$routes->get('getUser/(:any)','User::getUser/$1');
+	#Empleado
+	$routes->get('getEmployee/(:any)','Employee::getEmployee/$1');
 
 	#Actualizar datos
 	#Cliente
@@ -83,6 +85,8 @@ $routes->group('/admin', ['namespace' => 'App\Controllers\Admin', 'filter' => 'a
 	$routes->post('updatePet', 'Pet::update');
 	#Usuario
 	$routes->post('updateUser', 'User::update');
+	#Empleado
+	$routes->post('updateEmployee','Employee::update');
 
 	#Eliminar datos
 	#Cliente
@@ -91,6 +95,8 @@ $routes->group('/admin', ['namespace' => 'App\Controllers\Admin', 'filter' => 'a
 	$routes->get('deletePet/(:any)', 'Pet::delete/$1');
 	#Usuario
 	$routes->get('deleteUser/(:any)', 'User::delete/$1');
+	#Empleado
+	$routes->post('deleteEmployee/(:any)','Employee::delete/$1');
 });
 
 $routes->group('/invitado', ['namespace' => 'App\Controllers\Invitado', 'filter' => 'invite:Invitado'], function($routes){

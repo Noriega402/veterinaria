@@ -56,15 +56,27 @@ class EmployeeModel extends Model
 		// return $this->db->insertID();
 	}
 
+	#Para inicio de sesion
 	public function getEmployeeBy(string $column,  string $value)
 	{
 		// $this->db->table('empleado');
 		return $this->where($column, $value)->first();
 	}
 
+	#Para obtener Id para frm_update
 	public function getEmpleoyeeById($id){
 		$employee = $this->db->table('empleado')->where('id_empleado',$id);
-
 		return $employee->get()->getResultObject();
+	}
+
+	#Actualizar el registro
+	public function updateEmployee($data){
+		$employee = $this->db->table('empleado');
+		$employee->set('nombre',$data['nombre']);
+		$employee->set('apellido',$data['apellido']);
+		$employee->set('direccion',$data['direccion']);
+		$employee->where('id_empleado',$data['id_empleado']);
+
+		return $employee->update();
 	}
 }

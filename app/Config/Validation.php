@@ -30,7 +30,25 @@ class Validation
 		'nick' => ['required' => 'Para iniciar sesion llena este campo'],
 		'password' => ['required' => 'Para iniciar sesion llena este campo'],
 	];
-
+	public $empleado = [
+		'nombre' => 'required|min_length[3]',
+		'apellido' => 'required|min_length[3]',
+		'direccion' => 'required|string|min_length[4]'
+	];
+	public $empleado_errors = [
+		'nombre' => [
+			'required' => 'Es necesario ingresar un nombre',
+			'min_length' => 'El nombre debe contener mas de 2 caracteres',
+		],
+		'apellido' => [
+			'required' => 'Es necesario ingresar un apellido',
+			'min_length' => 'El apellido debe contener mas de 2 caracteres',
+		],
+		'direccion' => [
+			'required' => 'Es necesario ingresar una direccion',
+			'min_length' => 'La direccion debe tener mas de 4 caracteres',
+		],
+	];
 	public $client = [
 		'nombre' => 'required|min_length[3]',
 		'apellido' => 'required|min_length[3]',
@@ -79,14 +97,11 @@ class Validation
 		'sexo' => [
 			'required' => 'Debe escoger el sexo de la mascota.',
 		],
-
 		'f_nacimiento' => [
 			'required' => 'Debe ingresar año de nacimiento de mascota.',
 			'valid_date' => 'Debe ingresar una fecha válida'
 		],
-
 		'peso' => ['required' => 'Debe ingresar el peso'],
-
 		'color' => [
 			'required' => 'Debe describir el color de la mascota.',
 			'string' => 'Debe ser solo texto'

@@ -50,10 +50,10 @@
                                 <td><?= $key->apellido;?></td>
                                 <td><?= $key->direccion;?></td>
                                 <td class="acciones">
-                                    <a href="#" class="btn_editar">
+                                    <a href="<?= base_url().'/admin/getEmployee/'.$key->id_empleado; ?>" class="btn_editar">
                                         <i class="fas fa-edit"></i>
                                     </a>
-                                    <a href="#" class="btn_eliminar">
+                                    <a href="<?= base_url().'/admin/deleteEmployee/'.$key->id_empleado;?>" class="btn_eliminar">
                                         <i class="fas fa-trash-alt"></i>
                                     </a>
                                 </td>
@@ -75,11 +75,21 @@
 </section>
 <script>
     let mensaje = '<?= $correcto ?>';
+    let editado = '<?= $editado ?>';
     if(mensaje){
         Swal.fire({
             position: 'center',
             icon: 'success',
             title: `${mensaje}`,
+            showConfirmButton: false,
+            timer: 1500
+        });
+    }
+    if(editado){
+        Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: `${editado}`,
             showConfirmButton: false,
             timer: 1500
         });
