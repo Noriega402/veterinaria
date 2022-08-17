@@ -16,6 +16,7 @@ class User extends BaseController
 		$modelUser = new UserModel();
 
 		$sesion = session()->success;
+		$sesionUpdate = session()->update;
 
 		$employee = $modelEmployee->asObject()->getEmployee();
 		$rol = $modelRol->asObject()->getAllRol();
@@ -26,6 +27,7 @@ class User extends BaseController
 			'rol' => $rol,
 			'user' => $user,
 			'correcto' => $sesion,
+			'editado' => $sesionUpdate,
 		];
 		// dd($response);
 		// var_dump($response['employee'][1]);
