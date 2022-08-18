@@ -50,7 +50,7 @@ Problems with it can be raised on our forum, or as issues in the main repository
 
 ## Server Requirements
 
-PHP version 7.3 or higher is required, with the following extensions installed:
+PHP version 7.3 or less than 8.0 is required, with the following extensions installed:
 
 - [intl](http://php.net/manual/en/intl.requirements.php)
 - [libcurl](http://php.net/manual/en/curl.requirements.php) if you plan to use the HTTP\CURLRequest library
@@ -61,3 +61,18 @@ Additionally, make sure that the following extensions are enabled in your PHP:
 - [mbstring](http://php.net/manual/en/mbstring.installation.php)
 - [mysqlnd](http://php.net/manual/en/mysqlnd.install.php)
 - xml (enabled by default - don't turn it off)
+
+## Project description
+CRUD of:
+- Users.
+- Employees.
+- Pets.
+- Roles.
+
+Sessions for each user with different views and functionalities.
+
+## How to start?
+To start the project you will need the MySQL database, you can find it in the `App\Database\veterinaria.sql` folder.
+After mounting the database on your machine and starting the project, you can log in with the following credentials:
+- User: **Admin**
+- Password: **admin2022**
