@@ -5,27 +5,21 @@
     </div>
     <ul class="nav-links">
         <li>
-            <a href="#">
+            <a href="<?= base_url() . route_to('invitados'); ?>">
+                <i class="fas fa-home"></i>
+                <span class="link_name">Inicio</span>
+            </a>
+            <ul class="sub-menu blank">
+                <li><a class="link_name" href="#">Inicio</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="<?= base_url() . route_to('calendarInv'); ?>">
                 <i class="fas fa-calendar-alt"></i>
                 <span class="link_name">Calendario</span>
             </a>
             <ul class="sub-menu blank">
                 <li><a class="link_name" href="#">Calendario</a></li>
-            </ul>
-        </li>
-        <li>
-            <div class="iocn-link">
-                <a href="#">
-                    <i class="fas fa-address-card"></i>
-                    <span class="link_name">Registros</span>
-                </a>
-                <i class='bx bxs-chevron-down arrow'></i>
-            </div>
-            <ul class="sub-menu">
-                <li><a class="link_name" href="#">Registros</a></li>
-                <li><a href="#">Clientes</a></li>
-                <li><a href="#">Mascotas</a></li>
-                <li><a href="#">Otros</a></li>
             </ul>
         </li>
         <li>
@@ -38,12 +32,12 @@
             </ul>
         </li>
         <li>
-            <a href="#">
-                <i class="fas fa-cog"></i>
-                <span class="link_name">Configuración</span>
+            <a href="<?= base_url().route_to('petsInv'); ?>">
+                <i class="fas fa-dog"></i>
+                <span class="link_name">Mascotas</span>
             </a>
             <ul class="sub-menu blank">
-                <li><a class="link_name" href="#">Configuración</a></li>
+                <li><a class="link_name" href="#">Mascotas</a></li>
             </ul>
         </li>
         <li>
