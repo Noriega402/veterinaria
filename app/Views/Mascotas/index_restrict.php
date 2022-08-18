@@ -18,7 +18,6 @@
                             <th>NACIMIENTO</th>
                             <th>PESO</th>
                             <th>COLOR</th>
-                            <th>ACCIONES</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -32,14 +31,6 @@
                                 <td><?= $key->f_nacimiento;?></td>
                                 <td><?= $key->peso;?></td>
                                 <td><?= $key->color;?></td>
-                                <td class="acciones">
-                                    <a href="<?= base_url().'/admin/getPet/'. $key->id?>" class="btn_editar">
-                                        <i class="fas fa-edit"></i>
-                                    </a>
-                                    <a href="<?= base_url().'/admin/deletePet/'. $key->id; ?>" class="btn_eliminar">
-                                        <i class="fas fa-trash-alt"></i>
-                                    </a>
-                                </td>
                             </tr>
                         <?php endforeach; ?>
                     </tbody>
@@ -53,7 +44,6 @@
                             <th>NACIMIENTO</th>
                             <th>PESO</th>
                             <th>COLOR</th>
-                            <th>ACCIONES</th>
                         </tr>
                     </tfoot>
                 </table>
