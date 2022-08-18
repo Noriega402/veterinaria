@@ -76,6 +76,7 @@
 <script>
     let mensaje = '<?= $correcto ?>';
     let editado = '<?= $editado ?>';
+    let borrado = '<?= $eliminado ?>';
     if(mensaje){
         Swal.fire({
             position: 'center',
@@ -90,6 +91,15 @@
             position: 'center',
             icon: 'success',
             title: `${editado}`,
+            showConfirmButton: false,
+            timer: 1500
+        });
+    }
+    if(borrado){
+        Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: `${borrado}`,
             showConfirmButton: false,
             timer: 1500
         });

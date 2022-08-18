@@ -79,4 +79,9 @@ class EmployeeModel extends Model
 
 		return $employee->update();
 	}
+
+	public function deleteEmployee($id){
+		$employee = $this->db->table('empleado')->where('id_empleado',$id);
+		return $employee->delete();
+	}
 }

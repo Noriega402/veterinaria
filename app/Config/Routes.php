@@ -96,7 +96,7 @@ $routes->group('/admin', ['namespace' => 'App\Controllers\Admin', 'filter' => 'a
 	#Usuario
 	$routes->get('deleteUser/(:any)', 'User::delete/$1');
 	#Empleado
-	$routes->post('deleteEmployee/(:any)','Employee::delete/$1');
+	$routes->get('deleteEmployee/(:any)', 'Employee::delete/$1');
 });
 
 $routes->group('/invitado', ['namespace' => 'App\Controllers\Invitado', 'filter' => 'invite:Invitado'], function($routes){

@@ -20,12 +20,14 @@ class Employee extends BaseController
 
 		$sesion = session()->success;
 		$sesionUpdate = session()->update;
+		$sesionDelete = session()->delete;
 
 		$data = [ 'titulo' => 'Empleados'];
 		$response = [
 			'empleados' => $employee,
 			'correcto' => $sesion,
 			'editado' => $sesionUpdate,
+			'eliminado' => $sesionDelete,
 		];
 
 		$vistas = view ('Employee/header', $data).
@@ -93,5 +95,14 @@ class Employee extends BaseController
 
 		$msg = "Datos de empleado actualizado con exito!";
 		return redirect('employee')->with('update',$msg);
+	}
+
+	public function delete($id){
+		$employees = new EmployeeModel();
+		$data = ['id_empleado' => $id];
+		$employee = $employees->deleteEmployee($data);
+
+		$msg = "El empleado y sus usuario se han eliminado con exito!";
+		return redirect()->back()->with('delete',$msg);
 	}
 }
