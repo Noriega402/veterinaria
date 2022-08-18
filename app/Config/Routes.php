@@ -102,7 +102,7 @@ $routes->group('/admin', ['namespace' => 'App\Controllers\Admin', 'filter' => 'a
 $routes->group('/invitado', ['namespace' => 'App\Controllers\Invitado', 'filter' => 'invite:Invitado'], function($routes){
 	$routes->get('inicio', 'Home::index', ['as' => 'invitados']);
 	$routes->get('Calendar', 'Calendar::index', ['as' => 'calendarInv']);
-	$routes->get('Ubication', 'Ubication::index', ['as' => 'ubication']);
+	$routes->get('Ubication', 'Ubication::index', ['as' => 'maps']);
 	$routes->get('Pets', 'Pet::index', ['as' => 'petsInv']);
 });
 

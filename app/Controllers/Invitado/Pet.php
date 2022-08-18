@@ -20,7 +20,6 @@ class Pet extends BaseController
 		$lista = $cliente->getClients();
 		#Valores para tabla
 		$mascota = $mascotas->getPets();
-		// dd($mascota[2]->nombre);
 
 		$response = [
 			'raza' => $raza,
@@ -28,8 +27,7 @@ class Pet extends BaseController
 			'cliente' => $lista,
 			'mascotas' => $mascota,
 		];
-		// dd($response);
-		// dd($response[0]->nombre_raza);
+
 		$data =  ['titulo' => 'Mascotas'];
 		$vistas = view('Mascotas/header', $data).
 				view('Invitado/menu').

@@ -23,7 +23,7 @@
             </ul>
         </li>
         <li>
-            <a href="#">
+            <a href="<?= base_url().route_to('maps'); ?>">
                 <i class="far fa-compass"></i>
                 <span class="link_name">Ubicación</span>
             </a>
