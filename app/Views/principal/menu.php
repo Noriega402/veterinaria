@@ -23,7 +23,7 @@
                     Servicios
                 </a>
             </li>
-            <a href="<?= base_url().route_to('registro');?>" class="sesion">
+            <a href="<?= base_url().route_to('ingresar');?>" class="sesion">
                 <i class="fas fa-sign-in-alt"></i>
                 Iniciar Sesión
             </a>

@@ -43,8 +43,8 @@ $routes->group('/', ['namespace' => 'App\Controllers\Inicio'], function($routes)
 });
 
 $routes->group('/auth', ['namespace' => 'App\Controllers\Auth'], function($routes){
-	$routes->get('registrarse', 'Register::registro', ['as' => 'registro']);
-	$routes->post('signup', 'Register::signup');
+	// $routes->get('registrarse', 'Register::registro', ['as' => 'registro']);
+	// $routes->post('signup', 'Register::signup');
 
 	$routes->get('ingresar', 'Register::ingresar', ['as' => 'ingresar']);
 	$routes->post('signin', 'Register::signin');

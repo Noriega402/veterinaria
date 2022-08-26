@@ -32,7 +32,7 @@
         <input type="submit" class="form__button" value="Sign In">
         <hr>
         <div class="signin">
-            <a href="<?= base_url().route_to('registro');?>">¿Aun no estas registrado? Haz click aqui</a>
+            <a href="#">¿Aun no estas registrado? Haz click aqui</a>
         </div>
     </form>
 </div>
